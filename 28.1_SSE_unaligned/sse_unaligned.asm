@@ -48,7 +48,7 @@ main:
 
 
     leave
-    return
+    ret
 
 ;prints float vector. rdi - format string, rsi - address of vector in memory
 printspfp:
@@ -58,6 +58,7 @@ printspfp:
 
     ;save from memory to xmm0 reg first element of vector
     movss    xmm0, [rsi]
+    ;convert to double precision
     cvtss2sd xmm0, xmm0
 
     ;-//- second element of vector
